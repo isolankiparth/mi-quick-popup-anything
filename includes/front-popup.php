@@ -67,6 +67,13 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 		} else {
 			$btn_hover_color = '#fff';
 		}
+		// Get button zindex
+		if (!empty(get_option('miqpa_button_zindex'))) {
+			$btn_zindex = get_option('miqpa_button_zindex');
+		} else {
+			$btn_zindex = '99';
+		}
+
 		// Get popup width
 		if (!empty(get_option('miqpa_popup_width'))) {
 			$popup_width = get_option('miqpa_popup_width');
@@ -117,6 +124,7 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 			button.miqpa_popup_open_button {
 				background-color: $btn_bg;
 				color: $btn_color;
+				z-index: $btn_zindex;
 			}
 			button.miqpa_popup_open_button:hover {
 				background-color: $btn_hover_bg;
