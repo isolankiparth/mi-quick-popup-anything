@@ -110,7 +110,7 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 	
 		// Generate popup HTML
 		$add_code = "<div class='miqpa_popup_wrap'>";
-		$add_code .= "<button id='$btn_id' data-btn-position='$btn_position' class=' miqpa_popup_open_button $btn_class'>$btn_label</button>";
+		$add_code .= "<button id='$btn_id' data-btn-position='$btn_position' class=' miqpa_popup_open_button $btn_class'><span>$btn_label</span></button>";
 		$add_code .= "
 			<div id='miqpa_popup_content' class='miqpa-white-popup mfp-hide' $popup_style>
 			  <div id='$popup_id' class='wrap-miqpa $popup_class' >
