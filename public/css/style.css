@@ -80,4 +80,7 @@ button.miqpa_popup_open_button.left_center {
 	transform-origin: 0 0;
 	left: 0;
 }
-
+button.miqpa_popup_open_button.right_center,
+button.miqpa_popup_open_button.left_center {
+  zoom: 1.005;
+}
