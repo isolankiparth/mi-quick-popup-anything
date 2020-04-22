@@ -1,2 +1,2 @@
-# mi-quick-popup-anything
-WordPress Popup
+# Quick Popup Anything (WordPress Plugin)
+
