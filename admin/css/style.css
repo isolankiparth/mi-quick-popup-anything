@@ -12,3 +12,14 @@
 	border: 1px solid lightgray;
 	border-top: 0;
 }
+.miqpa_form #poststuff #post-body-content h2 {
+    padding: 8px 12px 0;
+}
+.miqpa_form #poststuff p.submit {
+	padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.miqpa_form #poststuff p.submit .button {
+	margin-bottom: 0;
+}
