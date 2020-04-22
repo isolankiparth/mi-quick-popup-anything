@@ -71,6 +71,7 @@ button.miqpa_popup_open_button.right_center {
   -webkit-transform-origin: 100% 100%;
 	transform-origin: 100% 100%;
 	right: 0;
+  cursor: pointer;
 }
 button.miqpa_popup_open_button.left_center {
 	border-bottom-left-radius: 5px;
