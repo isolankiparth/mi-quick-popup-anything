@@ -1,8 +1,8 @@
 <?php
 /**
- *
  * @since             1.0.0
  * @package           MI_Quick_Popup_Anything/includes
+ *
  * All Quick Popup Anything settings are here
  */ 
 
@@ -198,8 +198,6 @@ if ( !function_exists( 'miqpa_popup_settings_init' ) ) {
 	  add_settings_field( 'miqpa_popup_section_popup_class', 'Class', 'miqpa_popup_section_popup_class_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_bg', 'Background Color', 'miqpa_popup_section_popup_bg_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_text_color', 'Text Color', 'miqpa_popup_section_popup_text_color_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
-	  
-
 	}
 	add_action('admin_init', 'miqpa_popup_settings_init');
 
