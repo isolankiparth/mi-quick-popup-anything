@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name:       Quick Popup Anything
  * Plugin URI:        http://monsterinfotech.com/
- * Description:       Display any content in 'Quick Popup Anything' in all pages of the website.
+ * Description:       A lightweight, responsive and easy to use popup plugin. 
  * Version:           1.0.0
  * Author:            Monster Infotech
  * Author URI:        http://monsterinfotech.com/
