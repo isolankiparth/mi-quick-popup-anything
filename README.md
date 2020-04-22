@@ -2,6 +2,13 @@
 
 A lightweight, responsive and easy to use popup plugin. Insert shortcodes & other content from your favorite plugins to create Quick Popup.
 
+- Responsive popup plugin
+- Customize the look and feel
+- Choose between several button position
+- Html popup
+- Image popup
+- Shortcode popup
+
 Feel free to browse the code and make suggestions/requests. Thanks!
 
 ## Getting Started
