@@ -47,4 +47,4 @@ This project is licensed under the GPLv2 License.
 
 ## Support
 
-This is a developer's portal for Popup Maker and should not be used for support.
+This is a developer's portal for Quick Popup Anything and should not be used for support.
