@@ -24,10 +24,11 @@
    	miqpa_btn_class.magnificPopup({
    		removalDelay: 300,
    		mainClass: 'miqpa-mfp-fade',
-   		closeOnBgClick: false,
+   		closeOnBgClick: true,
+      enableEscapeKey: true,
    	  items: {
    	    src: '#miqpa_popup_content',
-   	    type: 'inline'
+   	    type: 'inline',
    	  }
    	});
   });
