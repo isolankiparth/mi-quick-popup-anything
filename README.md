@@ -6,13 +6,13 @@ Feel free to browse the code and make suggestions/requests. Thanks!
 
 ## Getting Started
 
-*Downloading And Using As A Plugin*
+**Downloading And Using As A Plugin**
 
 To use this plugin, this repo can be downloaded as a zip and installed as a WordPress plugin. Once installed and activated, Go to wp-admin > Quick Popup.
 
 ## Built With
 
-<a href="https://jquery.com/" target="_blank">jQuery</a> - A fast, small, and feature-rich JavaScript library
+<a href="https://jquery.com/" target="_blank">jQuery</a> - A fast, small, and feature-rich JavaScript library<br>
 <a href="https://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a> - A responsive lightbox & dialog script with focus on performance and providing best experience for user with any device
 
 ## Contributing
@@ -29,7 +29,7 @@ For the versions available, see the releases in this <a href="https://github.com
 
 ## Developers
 
-<a href="https://parthsolanki.com/" target="_blank">Parth Solanki</a> - Lead Developer
+<a href="https://parthsolanki.com/" target="_blank">Parth Solanki</a> - Lead Developer <br>
 <a href="https://abhishekkumbhani.com/" target="_blank">Abhishek Kumbhani</a> - Collaborator
 
 See also <a href="https://github.com/isolankiparth/mi-quick-popup-anything/graphs/contributors" target="_blank">the list of contributors</a> who participated in this project.
