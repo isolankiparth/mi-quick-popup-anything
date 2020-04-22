@@ -1,4 +1,4 @@
-#Quick Popup Anything
+# Quick Popup Anything
 
 A lightweight, responsive and easy to use popup plugin. Insert shortcodes & other content from your favorite plugins to create Quick Popup.
 
