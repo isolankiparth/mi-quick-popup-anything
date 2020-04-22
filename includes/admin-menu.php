@@ -1,6 +1,5 @@
 <?php
 /**
- *
  * @since             1.0.0
  * @package           MI_Quick_Popup_Anything/includes
  */ 
