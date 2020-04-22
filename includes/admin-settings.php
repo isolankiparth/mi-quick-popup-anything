@@ -15,40 +15,65 @@ if ( !function_exists( 'miqpa_settings_page_html' ) ) {
 	function miqpa_settings_page_html() {
     ?>
     <div class="wrap">
-      <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-      <?php settings_errors(); ?>
-      <?php
-        $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'popup-content';
-      ?>
-       
-      <h2 class="nav-tab-wrapper">
-        <a href="?page=miqpa-settings&tab=popup-content" class="nav-tab <?php echo $active_tab == 'popup-content' ? 'nav-tab-active' : ''; ?>">Popup Content</a>
-        <a href="?page=miqpa-settings&tab=button-settings" class="nav-tab <?php echo $active_tab == 'button-settings' ? 'nav-tab-active' : ''; ?>">Button Settings</a>
-        <a href="?page=miqpa-settings&tab=popup-settings" class="nav-tab <?php echo $active_tab == 'popup-settings' ? 'nav-tab-active' : ''; ?>">Popup Settings</a>
-      </h2>
+    	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+			<?php settings_errors(); ?>
 
-      <form action="options.php" method="post" class="miqpa_form">  
-        <?php
-        	if( $active_tab == 'popup-content' ) {
-        		echo "<div class='popup_content'>";
-            settings_fields( 'miqpa-content-settings' );
-            $content = get_option('miqpa_editor_content');
-	  				wp_editor( $content, 'miqpa_editor_content', array( 'textarea_rows' => 15 ) );
-        		echo "</div>";
-	        } else if( $active_tab == 'button-settings' ){
-	        	echo "<div class='miqpa_white_box'>";
-            settings_fields( 'miqpa-button-settings' );
-	          do_settings_sections( 'miqpa-button-settings' );
-	          echo "</div>";
-	        } else {
-			    	echo "<div class='miqpa_white_box'>";
-			      settings_fields( 'miqpa-popup-settings' );
-			      do_settings_sections( 'miqpa-popup-settings' );
-			      echo "</div>";
-	        }
-	        submit_button( __( 'Save Settings', 'mi-quick-popup-anything' ) );
-        ?>
-      </form>
+			<form action="options.php" method="post" name="miqpa_form" class="miqpa_form">
+	    	<div id="poststuff" class="miqpa-settings">
+	    		<div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
+	    			<div id="post-body-content">
+				      
+				      <?php
+				        $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'popup-content';
+				      ?>
+				       
+				      <h2 class="nav-tab-wrapper">
+				        <a href="?page=miqpa-settings&tab=popup-content" class="nav-tab <?php echo $active_tab == 'popup-content' ? 'nav-tab-active' : ''; ?>">Popup Content</a>
+				        <a href="?page=miqpa-settings&tab=button-settings" class="nav-tab <?php echo $active_tab == 'button-settings' ? 'nav-tab-active' : ''; ?>">Button Settings</a>
+				        <a href="?page=miqpa-settings&tab=popup-settings" class="nav-tab <?php echo $active_tab == 'popup-settings' ? 'nav-tab-active' : ''; ?>">Popup Settings</a>
+				      </h2>
+
+				        <?php
+				        	if( $active_tab == 'popup-content' ) {
+				        		echo "<div class='popup_content'>";
+				            settings_fields( 'miqpa-content-settings' );
+				            $content = get_option('miqpa_editor_content');
+					  				wp_editor( $content, 'miqpa_editor_content', array( 'textarea_rows' => 15 ) );
+				        		echo "</div>";
+					        } else if( $active_tab == 'button-settings' ){
+					        	echo "<div class='miqpa_white_box'>";
+				            settings_fields( 'miqpa-button-settings' );
+					          do_settings_sections( 'miqpa-button-settings' );
+					          echo "</div>";
+					        } else {
+							    	echo "<div class='miqpa_white_box'>";
+							      settings_fields( 'miqpa-popup-settings' );
+							      do_settings_sections( 'miqpa-popup-settings' );
+							      echo "</div>";
+					        }
+					        
+				        ?>
+				   	</div>
+				   	<div id="postbox-container-1" class="postbox-container">
+				   		<div id="submitdiv" class="postbox ">
+			  				<h2 class="hndle"><span>Publish</span></h2>
+			  				<div class="inside">
+					        <div class="submitbox" id="submitpost">
+					            <div id="major-publishing-actions">
+					                <?php submit_button( __( 'Save Settings', 'mi-quick-popup-anything' ), 'primary button-large' ); ?>
+					            </div>
+					            <div class="clear"></div>
+					        </div>
+								</div>
+							</div>
+						</div>
+						<div id="postbox-container-2" class="postbox-container">
+              <?php do_meta_boxes('','normal',null); ?>
+              <?php do_meta_boxes('','advanced',null); ?>
+            </div>
+	  			</div>
+	  		</div>
+  		</form>
     </div>
     <?php
 	}
@@ -102,7 +127,7 @@ if ( !function_exists( 'miqpa_button_settings_init' ) ) {
 	  add_settings_field( 'miqpa_button_section_btn_color', 'Label Color', 'miqpa_button_section_btn_color_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 	  add_settings_field( 'miqpa_button_section_btn_hover_bg', 'Background Hover Color', 'miqpa_button_section_btn_hover_bg_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 	  add_settings_field( 'miqpa_button_section_btn_hover_color', 'Label Hover Color', 'miqpa_button_section_btn_hover_color_cb', 'miqpa-button-settings', 'miqpa_button_section' );
-	  add_settings_field( 'miqpa_button_section_btn_hover_color', 'Button Zindex', 'miqpa_button_section_btn_zindex_cb', 'miqpa-button-settings', 'miqpa_button_section' );
+	  add_settings_field( 'miqpa_button_section_btn_hover_color', 'Button Z-index', 'miqpa_button_section_btn_zindex_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 
 	}
 	add_action('admin_init', 'miqpa_button_settings_init');
