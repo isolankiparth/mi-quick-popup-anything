@@ -1,0 +1,14 @@
+/**
+ * All of the CSS code
+ */
+
+/* Setting Page Style */
+.miqpa_form .popup_content {
+	margin-top: 20px;
+}
+.miqpa_form .miqpa_white_box {
+	background: #fff;
+	padding: 10px 30px;
+	border: 1px solid lightgray;
+	border-top: 0;
+}
