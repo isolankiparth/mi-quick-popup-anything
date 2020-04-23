@@ -36,7 +36,7 @@ For the versions available, see the releases in this <a href="https://github.com
 
 ## Developers
 
-<a href="https://parthsolanki.com/" target="_blank">Parth Solanki</a> - Lead Developer <br>
+<a href="https://monsterinfotech.com/" target="_blank">Parth Solanki</a> - Lead Developer <br>
 <a href="https://abhishekkumbhani.com/" target="_blank">Abhishek Kumbhani</a> - Collaborator
 
 See also <a href="https://github.com/isolankiparth/mi-quick-popup-anything/graphs/contributors" target="_blank">the list of contributors</a> who participated in this project.
