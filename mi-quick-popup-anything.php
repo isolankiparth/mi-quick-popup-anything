@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Quick Popup Anything
- * Plugin URI:        http://monsterinfotech.com/
+ * Plugin URI:        https://monsterinfotech.com/
  * Description:       A lightweight, responsive and easy to use popup plugin. Add html, texts, shortcodes, videos & more.
  * Version:           1.0.0
  * Author:            Monster Infotech
- * Author URI:        http://monsterinfotech.com/
+ * Author URI:        https://monsterinfotech.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       mi-quick-popup-anything
