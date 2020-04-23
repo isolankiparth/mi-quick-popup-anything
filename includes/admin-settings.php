@@ -109,11 +109,11 @@ if ( !function_exists( 'miqpa_button_settings_init' ) ) {
 	  register_setting('miqpa-button-settings', 'miqpa_button_position');
 	  register_setting('miqpa-button-settings', 'miqpa_button_id');
 	  register_setting('miqpa-button-settings', 'miqpa_button_class');
+	  register_setting('miqpa-button-settings', 'miqpa_button_zindex');
 	  register_setting('miqpa-button-settings', 'miqpa_button_bg');
 	  register_setting('miqpa-button-settings', 'miqpa_button_color');
 	  register_setting('miqpa-button-settings', 'miqpa_button_hover_bg');
 	  register_setting('miqpa-button-settings', 'miqpa_button_hover_color');
-	  register_setting('miqpa-button-settings', 'miqpa_button_zindex');
 
 	  // add settings section
 	  add_settings_section( 'miqpa_button_section', '', '', 'miqpa-button-settings' );
@@ -123,11 +123,11 @@ if ( !function_exists( 'miqpa_button_settings_init' ) ) {
 	  add_settings_field( 'miqpa_button_section_btn_position', 'Position', 'miqpa_button_section_btn_position_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 	  add_settings_field( 'miqpa_button_section_btn_id', 'ID', 'miqpa_button_section_btn_id_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 	  add_settings_field( 'miqpa_button_section_btn_class', 'Class', 'miqpa_button_section_btn_class_cb', 'miqpa-button-settings', 'miqpa_button_section' );
+	  add_settings_field( 'miqpa_button_section_btn_zindex', 'Button Z-index', 'miqpa_button_section_btn_zindex_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 	  add_settings_field( 'miqpa_button_section_btn_bg', 'Background Color', 'miqpa_button_section_btn_bg_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 	  add_settings_field( 'miqpa_button_section_btn_color', 'Label Color', 'miqpa_button_section_btn_color_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 	  add_settings_field( 'miqpa_button_section_btn_hover_bg', 'Background Hover Color', 'miqpa_button_section_btn_hover_bg_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 	  add_settings_field( 'miqpa_button_section_btn_hover_color', 'Label Hover Color', 'miqpa_button_section_btn_hover_color_cb', 'miqpa-button-settings', 'miqpa_button_section' );
-	  add_settings_field( 'miqpa_button_section_btn_hover_color', 'Button Z-index', 'miqpa_button_section_btn_zindex_cb', 'miqpa-button-settings', 'miqpa_button_section' );
 
 	}
 	add_action('admin_init', 'miqpa_button_settings_init');
@@ -168,6 +168,14 @@ if ( !function_exists( 'miqpa_button_settings_init' ) ) {
 	  <?php
 	}
 
+	// Button zindex callback
+	function miqpa_button_section_btn_zindex_cb() {
+	  $miqpa_button_zindex = get_option('miqpa_button_zindex');
+	  ?>
+	  <input type="text" name="miqpa_button_zindex" value="<?php echo isset( $miqpa_button_zindex ) ? esc_attr( $miqpa_button_zindex ) : ''; ?>">
+	  <?php
+	}
+
 	// Button background color callback
 	function miqpa_button_section_btn_bg_cb() {
 	  $miqpa_button_bg = get_option('miqpa_button_bg');
@@ -197,14 +205,6 @@ if ( !function_exists( 'miqpa_button_settings_init' ) ) {
 	  $miqpa_button_hover_color = get_option('miqpa_button_hover_color');
 	  ?>
 	  <input type="text" name="miqpa_button_hover_color" value="<?php echo isset( $miqpa_button_hover_color ) ? esc_attr( $miqpa_button_hover_color ) : ''; ?>" data-default-color="#ffffff" class="miqpa-color-field">
-	  <?php
-	}
-
-	// Button zindex callback
-	function miqpa_button_section_btn_zindex_cb() {
-	  $miqpa_button_zindex = get_option('miqpa_button_zindex');
-	  ?>
-	  <input type="text" name="miqpa_button_zindex" value="<?php echo isset( $miqpa_button_zindex ) ? esc_attr( $miqpa_button_zindex ) : ''; ?>">
 	  <?php
 	}
 
