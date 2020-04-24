@@ -93,6 +93,18 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 		} else {
 			$popup_class = '';
 		}
+		// Get popup display only once value
+		if (!empty(get_option('miqpa_popup_display_only_once'))) {
+			$popup_display_only_once = get_option('miqpa_popup_display_only_once');
+		} else {
+			$popup_display_only_once = '';
+		}
+		// Get popup disable value
+		if (!empty(get_option('miqpa_popup_disable'))) {
+			$popup_disable = get_option('miqpa_popup_disable');
+		} else {
+			$popup_disable = '';
+		}
 		// Get popup bg
 		if (!empty(get_option('miqpa_popup_bg'))) {
 			$popup_bg = get_option('miqpa_popup_bg');
@@ -140,7 +152,10 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 			}
 		</style>
 		";
-		echo $add_code;
+		if ($popup_disable == "" || $popup_disable != '1') {
+			echo $add_code;
+		}
 	}
 	add_action('wp_footer', 'miqpa_add_code_in_footer');
+	
 }
