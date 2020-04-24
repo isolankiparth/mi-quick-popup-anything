@@ -27,6 +27,7 @@
     // call popup script
     if (popup_display_only_once == true) {
       if (popup_hide_on_mobile == true && $(window).width() <= 600) {
+        // hide on mobile
         return false;
       } else {
         if(localStorage.getItem('popState') != 'shown'){
