@@ -7,6 +7,8 @@
   $(function($){
     // get popup display only once value
     let popup_display_only_once = $('#miqpa_popup_content').hasClass('popup_display_only_once');
+    // get hide on mobile class
+    let popup_hide_on_mobile = $('#miqpa_popup_content').hasClass('popup_hide_on_mobile');
   	// set quick popup anything button position - left or right
   	let miqpa_btn_class = $('.miqpa_popup_wrap .miqpa_popup_open_button');
   	miqpa_btn_class.removeClass('right_center left_center');
@@ -24,18 +26,22 @@
 
     // call popup script
     if (popup_display_only_once == true) {
-      if(localStorage.getItem('popState') != 'shown'){
-        $.magnificPopup.open({
-          removalDelay: 300,
-          mainClass: 'miqpa-mfp-fade',
-          closeOnBgClick: true,
-          enableEscapeKey: true,
-          items: {
-            src: '#miqpa_popup_content',
-            type: 'inline',
-          }
-        }, 0); 
-        localStorage.setItem('popState','shown')
+      if (popup_hide_on_mobile == true && $(window).width() <= 600) {
+        return false;
+      } else {
+        if(localStorage.getItem('popState') != 'shown'){
+          $.magnificPopup.open({
+            removalDelay: 300,
+            mainClass: 'miqpa-mfp-fade',
+            closeOnBgClick: true,
+            enableEscapeKey: true,
+            items: {
+              src: '#miqpa_popup_content',
+              type: 'inline',
+            }
+          }, 0); 
+          localStorage.setItem('popState','shown')
+        }
       }
     } else {
       localStorage.setItem('popState','')
@@ -43,7 +49,7 @@
         removalDelay: 300,
         mainClass: 'miqpa-mfp-fade',
         closeOnBgClick: true,
-       enableEscapeKey: true,
+        enableEscapeKey: true,
         items: {
           src: '#miqpa_popup_content',
           type: 'inline',

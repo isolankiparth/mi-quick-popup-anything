@@ -99,6 +99,12 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 		} else {
 			$popup_display_only_once = '';
 		}
+		// Get popup hdie on mobile
+		if (!empty(get_option('miqpa_popup_hide_on_mobile'))) {
+			$popup_hide_on_mobile = get_option('miqpa_popup_hide_on_mobile');
+		} else {
+			$popup_hide_on_mobile = '';
+		}
 		// Get popup disable value
 		if (!empty(get_option('miqpa_popup_disable'))) {
 			$popup_disable = get_option('miqpa_popup_disable');
@@ -119,7 +125,11 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 			$popup_text_color = "";
 		}
 		$popup_style = "style='".$popup_width."".$popup_bg."".$popup_text_color."'";
-	
+		if (!empty($popup_hide_on_mobile) && $popup_hide_on_mobile == "1") {
+			$popup_hide_on_mobile = "popup_hide_on_mobile";
+		} else {
+			$popup_hide_on_mobile = "";
+		}
 		// Generate popup HTML
 		$add_code = "<div class='miqpa_popup_wrap'>";
 		if (!empty($popup_display_only_once) || $popup_display_only_once == "1") {
@@ -128,7 +138,7 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 			$add_code .= "<button id='$btn_id' data-btn-position='$btn_position' class=' miqpa_popup_open_button $btn_class'><span>$btn_label</span></button>";
 		}
 		$add_code .= "
-			<div id='miqpa_popup_content' class='miqpa-white-popup mfp-hide $popup_display_only_once' $popup_style>
+			<div id='miqpa_popup_content' class='miqpa-white-popup mfp-hide $popup_display_only_once $popup_hide_on_mobile' $popup_style>
 			  <div id='$popup_id' class='wrap-miqpa $popup_class' >
 			  	$content
 			  </div>
@@ -156,6 +166,17 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 			}
 		</style>
 		";
+		if ($popup_hide_on_mobile == "popup_hide_on_mobile") {
+			$add_code .= "
+			<style>
+				@media screen and (max-width: 600px) {
+					button.miqpa_popup_open_button {
+						display: none !important;
+					}
+				}
+			</style>
+			";
+		}
 		if ($popup_disable == "" || $popup_disable != '1') {
 			echo $add_code;
 		}
