@@ -221,6 +221,8 @@ if ( !function_exists( 'miqpa_popup_settings_init' ) ) {
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_width');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_id');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_class');
+	  register_setting('miqpa-popup-settings', 'miqpa_popup_display_only_once');
+	  register_setting('miqpa-popup-settings', 'miqpa_popup_disable');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_bg');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_text_color');
 
@@ -231,6 +233,8 @@ if ( !function_exists( 'miqpa_popup_settings_init' ) ) {
 	  add_settings_field( 'miqpa_popup_section_popup_width', 'Width', 'miqpa_popup_section_popup_width_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_id', 'ID', 'miqpa_popup_section_popup_id_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_class', 'Class', 'miqpa_popup_section_popup_class_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
+	  add_settings_field( 'miqpa_popup_section_popup_display_only_once', 'Display Popup Only Once', 'miqpa_popup_section_popup_display_only_once_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
+	  add_settings_field( 'miqpa_popup_section_popup_disable', 'Disable Popup', 'miqpa_popup_section_popup_disable_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_bg', 'Background Color', 'miqpa_popup_section_popup_bg_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_text_color', 'Text Color', 'miqpa_popup_section_popup_text_color_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	}
@@ -258,6 +262,22 @@ if ( !function_exists( 'miqpa_popup_settings_init' ) ) {
 	  $miqpa_popup_class = get_option('miqpa_popup_class');
 	  ?>
 	  <input type="text" name="miqpa_popup_class" value="<?php echo isset( $miqpa_popup_class ) ? esc_attr( $miqpa_popup_class ) : ''; ?>">
+	  <?php
+	}
+
+	// Popup display only once callback
+	function miqpa_popup_section_popup_display_only_once_cb() {
+	  $miqpa_popup_display_only_once = get_option('miqpa_popup_display_only_once');
+	  ?>
+	  <input type="checkbox" name="miqpa_popup_display_only_once" value="1" <?php echo checked( 1, $miqpa_popup_display_only_once, false ); ?>/>
+	  <?php
+	}
+
+	// Popup disable callback
+	function miqpa_popup_section_popup_disable_cb() {
+	  $miqpa_popup_disable = get_option('miqpa_popup_disable');
+	  ?>
+	  <input type="checkbox" name="miqpa_popup_disable" value="1" <?php echo checked( 1, $miqpa_popup_disable, false ); ?>/>
 	  <?php
 	}
 
