@@ -2,6 +2,33 @@
  * All of the CSS code
  */
  
+/* Quick Popup Anthing Button Style */ 
+button.miqpa_popup_open_button.right_center {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+  -webkit-transform-origin: 100% 100%;
+	transform-origin: 100% 100%;
+	right: 0;
+  cursor: pointer;
+}
+button.miqpa_popup_open_button.left_center {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+  -webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	left: 0;
+}
+button.miqpa_popup_open_button.right_center span,
+button.miqpa_popup_open_button.left_center span {
+  zoom: 1.005;
+}
+
+
+
+/**
+ * All of the CSS code
+ */
+ 
 /* Quick Popup Anthing Style */ 
 .miqpa-mfp-fade.mfp-bg {
   opacity: 0;
@@ -28,15 +55,15 @@
   opacity: 0;
 }
 .miqpa-mfp-fade.mfp-close-btn-in .mfp-close {
-	-webkit-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-	text-decoration: none;
-	opacity: 1;
+  text-decoration: none;
+  opacity: 1;
   outline: none;
   border: 0px;
 }
 .miqpa-mfp-fade.mfp-close-btn-in .mfp-close:active {
-	top: 0px;
+  top: 0px;
 }
 .miqpa-white-popup {
   position: relative;
@@ -52,34 +79,55 @@
 
 /* Quick Popup Anthing Button Style */ 
 button.miqpa_popup_open_button {
-	position: fixed;
+  position: fixed;
   z-index: 99;
   text-decoration: none !important;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   line-height: 1;
   padding: 15px 20px;
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
   outline: none;
   border: 0px;
-}
-button.miqpa_popup_open_button.right_center {
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-  -webkit-transform-origin: 100% 100%;
-	transform-origin: 100% 100%;
-	right: 0;
   cursor: pointer;
 }
-button.miqpa_popup_open_button.left_center {
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-  -webkit-transform-origin: 0 0;
-	transform-origin: 0 0;
-	left: 0;
+button.miqpa_popup_open_button.left_center,
+button.miqpa_popup_open_button.right_center {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
+button.miqpa_popup_open_button.left_center {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  left: 0;
+}
+button.miqpa_popup_open_button.right_center {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  right: 0;
+  cursor: pointer;
+}
+button.miqpa_popup_open_button.bottom_left {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  cursor: pointer;
+  bottom: 0;
+  left: 40px;
+}
+button.miqpa_popup_open_button.bottom_right {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  cursor: pointer;
+  bottom: 0;
+  right: 40px;
+}
+
 button.miqpa_popup_open_button.right_center span,
 button.miqpa_popup_open_button.left_center span {
   zoom: 1.005;
