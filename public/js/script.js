@@ -38,6 +38,7 @@
         localStorage.setItem('popState','shown')
       }
     } else {
+      localStorage.setItem('popState','')
       miqpa_btn_class.magnificPopup({
         removalDelay: 300,
         mainClass: 'miqpa-mfp-fade',
