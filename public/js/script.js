@@ -19,10 +19,14 @@
   	if (button_position == 'right') {
   		miqpa_btn_class.css('top', 'calc(50% - '+button_width+'px)');
   		miqpa_btn_class.addClass('right_center');
-  	} else {
-  		miqpa_btn_class.css('top', 'calc(50% + '+half_button_width+'px)');
-  		miqpa_btn_class.addClass('left_center');
-  	}
+  	} else if (button_position == 'bottom_left') {
+      miqpa_btn_class.addClass('bottom_left');
+    } else if (button_position == 'bottom_right') {
+      miqpa_btn_class.addClass('bottom_right');
+    } else if (button_position == 'left') {
+      miqpa_btn_class.css('top', 'calc(50% + '+half_button_width+'px)');
+      miqpa_btn_class.addClass('left_center');
+    }
 
     // call popup script
     if (popup_display_only_once == true) {
