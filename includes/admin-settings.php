@@ -51,21 +51,12 @@ if ( !function_exists( 'miqpa_settings_page_html' ) ) {
 							      do_settings_sections( 'miqpa-popup-settings' );
 							      echo "</div>";
 					        }
-					        
 				        ?>
+
+				        <?php submit_button( __( 'Save Settings', 'mi-quick-popup-anything' ), 'primary button-large' ); ?>
 				   	</div>
 				   	<div id="postbox-container-1" class="postbox-container">
-				   		<div id="submitdiv" class="postbox ">
-			  				<h2 class="hndle"><span>Publish</span></h2>
-			  				<div class="inside">
-					        <div class="submitbox" id="submitpost">
-					            <div id="major-publishing-actions">
-					                <?php submit_button( __( 'Save Settings', 'mi-quick-popup-anything' ), 'primary button-large' ); ?>
-					            </div>
-					            <div class="clear"></div>
-					        </div>
-								</div>
-							</div>
+              <?php do_meta_boxes('','side',null); ?>
 						</div>
 						<div id="postbox-container-2" class="postbox-container">
               <?php do_meta_boxes('','normal',null); ?>
@@ -146,8 +137,10 @@ if ( !function_exists( 'miqpa_button_settings_init' ) ) {
 	  $miqpa_button_position = get_option('miqpa_button_position');
 	  ?>
 	  <select name="miqpa_button_position">
-		  <option value="right" <?php selected(get_option('miqpa_button_position'), "right"); ?>>Right</option>
-		  <option value="left" <?php selected(get_option('miqpa_button_position'), "left"); ?>>Left</option>
+		  <option value="left" <?php selected(get_option('miqpa_button_position'), "left"); ?>>Center Left</option>
+		  <option value="right" <?php selected(get_option('miqpa_button_position'), "right"); ?>>Center Right</option>
+		  <option value="bottom_left" <?php selected(get_option('miqpa_button_position'), "bottom_left"); ?>>Bottom Left</option>
+		  <option value="bottom_right" <?php selected(get_option('miqpa_button_position'), "bottom_right"); ?>>Bottom Right</option>
 		</select>
 	  <?php
 	}
@@ -218,31 +211,47 @@ if ( !function_exists( 'miqpa_popup_settings_init' ) ) {
 	
 	function miqpa_popup_settings_init() {
 		// register settings
+	  register_setting('miqpa-popup-settings', 'miqpa_popup_disable');
+	  register_setting('miqpa-popup-settings', 'miqpa_popup_hide_on_mobile');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_width');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_id');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_class');
-	  register_setting('miqpa-popup-settings', 'miqpa_popup_display_only_once');
-	  register_setting('miqpa-popup-settings', 'miqpa_popup_hide_on_mobile');
-	  register_setting('miqpa-popup-settings', 'miqpa_popup_disable');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_bg');
 	  register_setting('miqpa-popup-settings', 'miqpa_popup_text_color');
+	  register_setting('miqpa-popup-settings', 'miqpa_popup_display_only_once');
 
 	  // add settings section
 	  add_settings_section( 'miqpa_popup_section', '', '', 'miqpa-popup-settings' );
 
 	  // add settings field
+	  add_settings_field( 'miqpa_popup_section_popup_disable', 'Disable Popup', 'miqpa_popup_section_popup_disable_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
+	  add_settings_field( 'miqpa_popup_section_popup_hide_on_mobile', 'Hide on Mobile', 'miqpa_popup_section_popup_hide_on_mobile_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_width', 'Width', 'miqpa_popup_section_popup_width_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_id', 'ID', 'miqpa_popup_section_popup_id_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_class', 'Class', 'miqpa_popup_section_popup_class_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
-	  add_settings_field( 'miqpa_popup_section_popup_display_only_once', 'Display Popup Only Once', 'miqpa_popup_section_popup_display_only_once_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
-	  add_settings_field( 'miqpa_popup_section_popup_hide_on_mobile', 'Hide on Mobile', 'miqpa_popup_section_popup_hide_on_mobile_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
-	  add_settings_field( 'miqpa_popup_section_popup_disable', 'Disable Popup', 'miqpa_popup_section_popup_disable_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_bg', 'Background Color', 'miqpa_popup_section_popup_bg_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	  add_settings_field( 'miqpa_popup_section_popup_text_color', 'Text Color', 'miqpa_popup_section_popup_text_color_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
+	  add_settings_field( 'miqpa_popup_section_popup_display_only_once', 'Display Popup Only Once', 'miqpa_popup_section_popup_display_only_once_cb', 'miqpa-popup-settings', 'miqpa_popup_section' );
 	}
 	add_action('admin_init', 'miqpa_popup_settings_init');
 
 	/* All callback functions */
+	// Popup disable callback
+	function miqpa_popup_section_popup_disable_cb() {
+	  $miqpa_popup_disable = get_option('miqpa_popup_disable');
+	  ?>
+	  <input type="checkbox" name="miqpa_popup_disable" value="1" <?php echo checked( 1, $miqpa_popup_disable, false ); ?>/>
+	  <?php
+	}
+
+	// Popup hide on mobile callback
+	function miqpa_popup_section_popup_hide_on_mobile_cb() {
+	  $miqpa_popup_hide_on_mobile = get_option('miqpa_popup_hide_on_mobile');
+	  ?>
+	  <input type="checkbox" name="miqpa_popup_hide_on_mobile" value="1" <?php echo checked( 1, $miqpa_popup_hide_on_mobile, false ); ?>/>
+	  <?php
+	}
+
 	// Popup Max Width callback
 	function miqpa_popup_section_popup_width_cb() {
 	  $miqpa_popup_width = get_option('miqpa_popup_width');
@@ -267,30 +276,6 @@ if ( !function_exists( 'miqpa_popup_settings_init' ) ) {
 	  <?php
 	}
 
-	// Popup display only once callback
-	function miqpa_popup_section_popup_display_only_once_cb() {
-	  $miqpa_popup_display_only_once = get_option('miqpa_popup_display_only_once');
-	  ?>
-	  <input type="checkbox" name="miqpa_popup_display_only_once" value="1" <?php echo checked( 1, $miqpa_popup_display_only_once, false ); ?>/>
-	  <?php
-	}
-
-	// Popup hide on mobile callback
-	function miqpa_popup_section_popup_hide_on_mobile_cb() {
-	  $miqpa_popup_hide_on_mobile = get_option('miqpa_popup_hide_on_mobile');
-	  ?>
-	  <input type="checkbox" name="miqpa_popup_hide_on_mobile" value="1" <?php echo checked( 1, $miqpa_popup_hide_on_mobile, false ); ?>/>
-	  <?php
-	}
-
-	// Popup disable callback
-	function miqpa_popup_section_popup_disable_cb() {
-	  $miqpa_popup_disable = get_option('miqpa_popup_disable');
-	  ?>
-	  <input type="checkbox" name="miqpa_popup_disable" value="1" <?php echo checked( 1, $miqpa_popup_disable, false ); ?>/>
-	  <?php
-	}
-
 	// Popup background color callback
 	function miqpa_popup_section_popup_bg_cb() {
 	  $miqpa_popup_bg = get_option('miqpa_popup_bg');
@@ -307,5 +292,11 @@ if ( !function_exists( 'miqpa_popup_settings_init' ) ) {
 	  <?php
 	}
 
+	// Popup display only once callback
+	function miqpa_popup_section_popup_display_only_once_cb() {
+	  $miqpa_popup_display_only_once = get_option('miqpa_popup_display_only_once');
+	  ?>
+	  <input type="checkbox" name="miqpa_popup_display_only_once" value="1" <?php echo checked( 1, $miqpa_popup_display_only_once, false ); ?>/>
+	  <?php
+	}
 }
-
