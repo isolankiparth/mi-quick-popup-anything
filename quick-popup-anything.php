@@ -13,7 +13,7 @@
  *
  * @since             1.0.0
  * @author      			Parth Solanki
- * @package           MI_Quick_Popup_Anything
+ * @package           Quick_Popup_Anything
  */
 
 // Exit if accessed directly

@@ -1,7 +1,7 @@
 <?php
 /**
  * @since             1.0.0
- * @package           MI_Quick_Popup_Anything/includes
+ * @package           Quick_Popup_Anything/includes
  *
  * Load Style and JS file in client side and admin side
  */ 

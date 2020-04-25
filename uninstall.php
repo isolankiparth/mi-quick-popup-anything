@@ -1,7 +1,7 @@
 <?php
 /**
  * @since             1.0.0
- * @package           MI_Quick_Popup_Anything
+ * @package           Quick_Popup_Anything
  */ 
 
 // if uninstall.php is not called by WordPress, die
