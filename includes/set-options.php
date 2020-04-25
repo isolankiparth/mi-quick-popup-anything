@@ -19,7 +19,7 @@ function miqpa_activation_plugin() {
 		update_option('miqpa_button_label', 'Quick Popup');
 	}
 	if ( ! get_option( 'miqpa_button_bg' ) ) {
-		update_option('miqpa_button_bg', '#00ad5f');
+		update_option('miqpa_button_bg', '#3498db');
 	}
 	if ( ! get_option( 'miqpa_button_color' ) ) {
 		update_option('miqpa_button_color', '#ffffff');

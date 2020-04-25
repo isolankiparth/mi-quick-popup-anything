@@ -47,7 +47,7 @@ if ( !function_exists( 'miqpa_add_code_in_footer' ) ) {
 		if (!empty(get_option('miqpa_button_bg'))) {
 			$btn_bg = get_option('miqpa_button_bg');
 		} else {
-			$btn_bg = '#00ad5f';
+			$btn_bg = '#3498db';
 		}
 		// Get button color
 		if (!empty(get_option('miqpa_button_color'))) {
