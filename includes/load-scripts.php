@@ -34,8 +34,8 @@ if ( !function_exists( 'miqpa_plugin_public_scripts' ) ) {
 	function miqpa_plugin_public_scripts() {
 		wp_enqueue_style( 'miqpa-css', MIQPA_PLUGIN_DIR. 'public/css/style.css', '', '1.0.0' );
 		wp_enqueue_style( 'miqpa-magnific-popup-css', MIQPA_PLUGIN_DIR. 'public/css/magnific-popup.css' );
-		wp_enqueue_script( 'miqpa-magnific-popup-js', MIQPA_PLUGIN_DIR. 'public/js/jquery.magnific-popup.min.js', 'jQuery', '', true );
-		wp_enqueue_script( 'miqpa-js', MIQPA_PLUGIN_DIR. 'public/js/script.js', 'jQuery', '1.0.0', true );
+		wp_enqueue_script( 'miqpa-magnific-popup-js', MIQPA_PLUGIN_DIR. 'public/js/jquery.magnific-popup.min.js', array('jquery'), '', true );
+		wp_enqueue_script( 'miqpa-js', MIQPA_PLUGIN_DIR. 'public/js/script.js', array('jquery'), '1.0.0', true );
 	}
 	add_action('wp_enqueue_scripts', 'miqpa_plugin_public_scripts');
 
